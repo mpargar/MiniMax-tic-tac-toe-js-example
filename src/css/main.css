@@ -1,0 +1,19 @@
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#app > button {
+  width: calc(100vw / 3);
+  height: calc(100vh / 3);
+  font-size: 2em;
+}
