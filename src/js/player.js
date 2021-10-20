@@ -1,15 +1,17 @@
 class Player {
-  constructor(GameBoard, playerSymbol, itsMyTurn) {
+  constructor(GameBoard, playerSymbol, itsMyTurn, humanPlay = true) {
     // Inicializar el jugador
     this.GameBoard = GameBoard;
     this.playerSymbol = playerSymbol;
     this.itsMyTurn = itsMyTurn;
     // Agregar los actuadores
-    this.GameBoard.buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        this.play(button);
+    if (humanPlay) {
+      this.GameBoard.buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          this.play(button);
+        });
       });
-    });
+    }
     // Observadores
     this.observers = this.GameBoard.buttons.map((button) => {
       const observer = new MutationObserver((mutation) => {
